@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import Todo from './Todo';
 import { v4 as uuidv4 } from "uuid";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd"
+import { useLocalStorage } from '../hooks/useLocalStorage';
 uuidv4();
 
 
 function TodoWrapper() {
   const [value, setValue] = useState('');
-  const [todos, setTodos] = useState([], () => {
-    const localData = localStorage.getItem("todos");
-    return localData ? JSON.parse(localData) : []
-  });
+  const [todos, setTodos] = useLocalStorage("todos", []);
+ 
   const [editId, setEditId] = useState(0);
 
   const handleSubmit = (e) => {
@@ -76,11 +75,11 @@ function TodoWrapper() {
 
 
 
-  useEffect(() => {
+  /*useEffect(() => {
       localStorage.setItem("Todos", JSON.stringify(todos)); 
   }, [todos]);
 
-  /* useEffect(() => {
+   useEffect(() => {
     const localData = localStorage.getItem("todos");
     return localData ? JSON.parse(localData) : []
     
