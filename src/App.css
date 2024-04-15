@@ -3,9 +3,13 @@
   width: auto;
   
 }
-
-.todo-form{
+.todo-heading{
   margin-top: 24px; 
+  display: flex;
+  justify-content: center;   
+}
+.todo-form{
+  margin-top: 5px; 
   display: flex;
   justify-content: center; 
 }
@@ -58,4 +62,19 @@ h1{
 }
 .icon-edit.completed {
   pointer-events: none;
+}
+
+@media screen and (max-width: 600px){
+  .Todo{
+    width: 75%;
+  }
+  .icon-edit{
+    margin: 3px;
+  }
+  .icon-delete{
+    margin: 3px;
+  }
+  .icons{
+    flex-wrap: wrap;
+  }
 }

@@ -91,8 +91,9 @@ function TodoWrapper() {
   return (
     <>
       <div>
+        <h4 className='todo-heading'>What's on your todo list?</h4>
         <form onSubmit={handleSubmit} className='todo-form'>
-          <input className='todo-input' type='text' id='createtodo' name='createtodo' value={value} onChange={(e) => setValue(e.target.value)} />
+          <input className='todo-input' type='text' id='createtodo' name='createtodo' value={value} onChange={(e) => setValue(e.target.value)} placeholder='eg. make a video' />
         </form>
         <DragDropContext onDragEnd={handleDragDrop}>
           {todos.length === 1 ? (
