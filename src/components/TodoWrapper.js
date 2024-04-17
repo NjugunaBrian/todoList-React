@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import Todo from './Todo';
 import { v4 as uuidv4 } from "uuid";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd"
@@ -9,8 +9,14 @@ uuidv4();
 function TodoWrapper() {
   const [value, setValue] = useState('');
   const [todos, setTodos] = useLocalStorage("todos", []);
- 
+
   const [editId, setEditId] = useState(0);
+
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,31 +73,14 @@ function TodoWrapper() {
     }
   }
 
-  //save to local storage
-
-
-
-
-
-
-
-  /*useEffect(() => {
-      localStorage.setItem("Todos", JSON.stringify(todos)); 
-  }, [todos]);
-
-   useEffect(() => {
-    const localData = localStorage.getItem("todos");
-    return localData ? JSON.parse(localData) : []
-    
-    }, [todos, value]);
-  
-  */
 
 
   return (
     <>
-      <div>
-        <h4 className='todo-heading'>What's on your todo list?</h4>
+      <div className={`${isDarkMode ? 'dark-theme' : ''}`}>
+        <div className='todo-header'>
+          <h4>What's on your todo list?</h4>
+        </div>
         <form onSubmit={handleSubmit} className='todo-form'>
           <input className='todo-input' type='text' id='createtodo' name='createtodo' value={value} onChange={(e) => setValue(e.target.value)} placeholder='eg. make a video' />
         </form>
