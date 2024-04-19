@@ -6,7 +6,6 @@ this.addEventListener('install', (e) => {
             cache.addAll([
                 '/static/js/bundle.js',
                 '/taskLogo.jpg',
-                '/ws',
                 '/index.html',
                 '/'
             ])
