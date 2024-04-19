@@ -1,0 +1,1 @@
+console.warn("ws file is public folder")
