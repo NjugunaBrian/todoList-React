@@ -1,4 +1,4 @@
-let todosCache = 'my-cache';
+/*let todosCache = 'my-cache';
 
 this.addEventListener('install', (event) => {
     event.waitUntil(
@@ -23,3 +23,4 @@ this.addEventListener('fetch', (event) => {
         })
     )
 })
+*/
